@@ -27,7 +27,7 @@ class Compute_express
 		//符号栈
 		stack<char> symbol_stack;
 		//数字栈
-		stack<int> digital_stack;
+		stack<double> digital_stack;
 		//将优先级矩阵转化为优先级map	
 		void symbol_priority_array_to_map();
 		//根据优先级map判断是从符号栈中弹出还是压入
@@ -35,7 +35,7 @@ class Compute_express
 		//100 是出错 不存在对比关系
 		int push_or_pop_symbol(char symbol);
 		//根据算符计算数值
-		int calculate_value(char symbol,int value1,int value2);
+		double calculate_value(char symbol,double value1,double value2);
 	public:
 		//设置操作符顺序向量
 		void set_symbol_sequence(vector<char> &symbol_sequence_arg);
@@ -44,6 +44,6 @@ class Compute_express
 		//设置待计算的算式
 		void set_express(string &string_arg);
 		//计算最终结果
-		int compute();
+		double compute();
 };
 #endif

@@ -1,6 +1,4 @@
 #include "Compute_express.h"
-#include <iostream>
-//using namespace std;
 int main()
 {
 	//定义矩阵符号顺序
@@ -25,6 +23,6 @@ int main()
 	ce.set_symbol_sequence(symbol_sequence);
 	ce.set_symbol_priority_array(symbol_array);
 	ce.set_express(express);
-	ce.compute();
+	cout <<"the result is :" << ce.compute() << endl;
 	return 0;
 }

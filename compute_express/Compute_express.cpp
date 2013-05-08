@@ -47,7 +47,7 @@ int Compute_express::push_or_pop_symbol(char symbol)
 }
 
 //根据算符计算数值
-int Compute_express::calculate_value(char symbol,int value1,int value2)
+double Compute_express::calculate_value(char symbol,double value1,double value2)
 {
 	switch (symbol)
 	{
@@ -62,7 +62,7 @@ int Compute_express::calculate_value(char symbol,int value1,int value2)
 	}
 }
 //计算最终结果
-int Compute_express::compute()
+double Compute_express::compute()
 {
 	symbol_priority_array_to_map();
 	symbol_stack.push('#');
@@ -97,9 +97,7 @@ int Compute_express::compute()
 				{
 					if(symbol_stack.top() == '#') 
 					{
-						cout << "the result is :"<< digital_stack.top() << endl;
-						symbol_stack.pop();
-						break;
+						return digital_stack.top();
 					}
 					else if(symbol_stack.top() == '(')
 					{
@@ -108,17 +106,17 @@ int Compute_express::compute()
 					}
 					else
 					{
-						int value2 = digital_stack.top();
+						double value2 = digital_stack.top();
 						digital_stack.pop();
-						int value1 = digital_stack.top();
+						double value1 = digital_stack.top();
 						digital_stack.pop();
-						int value = calculate_value(symbol_stack.top(),value1,value2);
+						double value = calculate_value(symbol_stack.top(),value1,value2);
 						symbol_stack.pop();
 						digital_stack.push(value);
 					}
 				}
 				while(push_or_pop_symbol(express[i]) != -1);
-				if(express[i] != '#' && express[i] != ')') symbol_stack.push(express[i]);
+				if(express[i] != ')') symbol_stack.push(express[i]);
 			}
 		}
 		else
