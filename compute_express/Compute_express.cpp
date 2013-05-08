@@ -68,13 +68,21 @@ double Compute_express::compute()
 	symbol_stack.push('#');
 	for(string::size_type i = 0;express.size() != i; i++)
 	{
-		if(isdigit(express[i]))
+		if(isdigit(express[i]) || express[i] == '.')
 		{
 			value_string += express[i];
-			if(isdigit(express[i+1])) 
-				continue;
+			if(isdigit(express[i+1]) || express[i+1] == '.')
+			{
+				if(express[i+1] == '.' && value_string.find('.') != string::npos) 
+				{
+					cout << "error double format!" <<endl;
+					break;
+				}	
+				else
+					continue;
+			}
 			else		
-				digital_stack.push(atoi(value_string.c_str()));
+				digital_stack.push(atof(value_string.c_str()));
 		}
 		else if(symbol_priority_map.find(express[i]) != symbol_priority_map.end() || express[i] =='#')
 		{
