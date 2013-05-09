@@ -75,8 +75,7 @@ double Compute_express::compute()
 			{
 				if(express[i+1] == '.' && value_string.find('.') != string::npos) 
 				{
-					cout << "error double format!" <<endl;
-					break;
+					throw runtime_error("error double format!");
 				}	
 				else
 					continue;
@@ -92,8 +91,7 @@ double Compute_express::compute()
 			int pos = push_or_pop_symbol(express[i]);
 			if(pos == 100) 
 			{
-				cout << "the express is not format,hava error symbol relation!" << endl;
-				break;
+				throw runtime_error("the express is not format,hava error symbol relation!");
 			}
 			else if(pos == -1)
 			{
@@ -129,8 +127,7 @@ double Compute_express::compute()
 		}
 		else
 		{
-			cout << "the express format is not right!" << endl;
-			break;
+			throw runtime_error("the express format is not right!");
 		}
 	}	
 }

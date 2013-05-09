@@ -7,6 +7,7 @@
 #include<map>
 #include<string>
 #include<cstdlib>
+#include<stdexcept>
 using namespace std;
 
 //缺少符号个数常量的定义
