@@ -47,21 +47,25 @@ vector<int> MergeSort::divide(vector<int> array){
 vector<int> MergeSort::sort(vector<int> &array,bool symbol)
 {
 	vector<int> array_sorted;
-	array_sorted = divide(array);
-
-	if(symbol == true)
-		return array_sorted;
+	if(array.empty())
+		cout << "the array can't be empty!" <<endl;
 	else
 	{
-		int temp  = 0;
-		temp = *(array_sorted.begin());
-		for(vector<int>::iterator i = array_sorted.begin(),j = (array_sorted.end()-1);i < j;i++,j--)
-		{
-			temp = *i;
-			*i = *j;
-			*j = temp;
-		}
+		array_sorted = divide(array);
+		if(symbol == true)
 		return array_sorted;
+		else
+		{
+			int temp  = 0;
+			temp = *(array_sorted.begin());
+			for(vector<int>::iterator i = array_sorted.begin(),j = (array_sorted.end()-1);i < j;i++,j--)
+			{
+				temp = *i;
+				*i = *j;
+				*j = temp;
+			}
+		}
 	}
+	return array_sorted;
 
 }

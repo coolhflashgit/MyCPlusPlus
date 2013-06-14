@@ -9,6 +9,7 @@
 #define MERGESORT_H_
 
 #include<vector>
+#include<iostream>
 using namespace std;
 
 class MergeSort{
