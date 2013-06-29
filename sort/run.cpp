@@ -8,6 +8,7 @@
 #include "datafile.h"
 #include "MergeSort.h"
 #include "HeapSort.h"
+#include "QuickSort.h"
 using namespace std;
 int main(){
 	vector<int> random_number,sort_result;
@@ -22,10 +23,17 @@ int main(){
 	sort_result = ms.sort(ramdom_number,false);
 	dfo.write_to_file_result("mergesortresult.txt",sort_result);
 */
+/*
+	//¶ÑÅÅÐòÊä³ö½á¹û
 	HeapSort hs;
 	sort_result = hs.sort(random_number);
 	dfo.write_to_file_result("heapsortresult.txt",sort_result);
 	return 0;
+*/
+	QuickSort qs;
+	sort_result = qs.sort_result(random_number);
+	dfo.write_to_file_result("quicksortresult.txt",sort_result);
+	cout << "ÅÅÐò½áÊø!" <<endl;
 }
 
 
