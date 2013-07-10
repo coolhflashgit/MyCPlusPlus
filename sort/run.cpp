@@ -9,6 +9,7 @@
 #include "MergeSort.h"
 #include "HeapSort.h"
 #include "QuickSort.h"
+#include "ShellSort.h"
 using namespace std;
 int main(){
 	vector<int> random_number,sort_result;
@@ -30,10 +31,16 @@ int main(){
 	dfo.write_to_file_result("heapsortresult.txt",sort_result);
 	return 0;
 */
+/*
 	QuickSort qs;
 	sort_result = qs.sort_result(random_number);
 	dfo.write_to_file_result("quicksortresult.txt",sort_result);
 	cout << "ÅÅÐò½áÊø!" <<endl;
+*/
+	ShellSort ss;
+	sort_result = ss.sort_result(random_number);
+	dfo.write_to_file_result("shellsortresult.txt",sort_result);
+	cout << "ÅÅÐò½áÊø£¡" <<endl;
 }
 
 
